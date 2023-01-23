@@ -17,5 +17,13 @@ router.post("/", async(req,res) => {
 
 //Get all Pins
 
+router.get("/", async(req,res) => {
+    try {
+        const pins = await Pin.find();
+        res.status(200).json(pins);
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
 
 module.exports = router;
