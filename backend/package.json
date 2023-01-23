@@ -1,0 +1,17 @@
+{
+  "name": "mapandgo",
+  "version": "1.0.0",
+  "description": "An app to make travel itineraries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Revati Bordawekar",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.4"
+  }
+}
