@@ -8,6 +8,8 @@ import axios from 'axios'
 function App() {
   const [pins, setPins] = useState([])
   const [viewport, setViewport] = useState({
+    width:"100vw",
+    height: "100vh",
     latitude: 47.040182,
     longitude: 17.071727,
     zoom: 4,
