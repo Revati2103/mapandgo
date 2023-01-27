@@ -1,33 +1,40 @@
-import { useState } from "react";
-import Map, {Marker} from 'react-map-gl'
+import { useState } from 'react';
+import ReactMapGL, {Marker} from 'react-map-gl'
+import {Room} from '@mui/icons-material';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 function App() {
 
-  // const [viewport, setViewport] = useState({
-  //   width: "100vw",
-  //   height: "100vh",
-  //   latitude: 47.040182,
-  //   longitude: 17.071727,
-  //   zoom: 4,
-  // });
+  const [viewport, setViewport] = useState({
+    width: "100vw",
+    height: "100vh",
+    latitude: 46,
+    longitude: 17,
+    zoom: 4
+  });
 
   return (
     <div className="App">
-      <Map
-    initialViewState={{
-      longitude: -122.4,
-      latitude: 37.8,
-      zoom: 14
-    }}
-    style={{width: "100vw", height: "100vh"}}
-    mapStyle="mapbox://styles/mapbox/streets-v9"
-    mapboxAccessToken= {process.env.REACT_APP_MAPBOX} >
+      <ReactMapGL
+      {...viewport}
+      onViewportChange={nextViewport => setViewport(nextViewport)}
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
+      mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
+      >
      
-     <Marker longitude={-100} latitude={40} anchor="bottom" >
-      
+     <Marker 
+     longitude={2.294694} 
+     latitude={48.858093} 
+     offsetLeft={-20}
+     offsetTop={-10}
+     >
+     <Room style={{
+      fontSize: viewport.zoom *7,
+      color: "slateblue"
+     }}/>
     </Marker>
  
-    </Map>
+    </ReactMapGL>
 
     </div>
   );
