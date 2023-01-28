@@ -109,11 +109,8 @@ function App() {
                   <p className="desc">{p.desc}</p>
                   <label>Rating</label>
                   <div className='stars'>
-            <Star className='stars'/>
-            <Star className='stars'/>
-            <Star className='stars'/>
-            <Star className='stars'/>
-            <Star className='stars'/>
+           
+                {Array(p.rating).fill( <Star className='stars'/>)}
          </div>
                   <label>Information</label>
                   <span className="username">
@@ -170,7 +167,9 @@ function App() {
         </>
 
 )}
-        
+       <button className='button logout'>Log out</button> 
+       <button className='button login'>Log in</button> 
+       <button className='button register'>Register</button> 
      
     </ReactMapGL>
 
