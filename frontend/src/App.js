@@ -79,7 +79,7 @@ function App() {
       {...viewport}
       onViewportChange={(viewport) => setViewport(viewport)}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
-      width="80%"
+      width="100%"
       height="100%"
       transitionDuration="200"
       mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
