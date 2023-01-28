@@ -5,6 +5,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import './app.css'
 import axios from 'axios'
 import { format } from "timeago.js";
+import Register from './components/Register';
+import Login from './components/Login';
 
 function App() {
   const [pins, setPins] = useState([]);
@@ -14,6 +16,8 @@ function App() {
   const [desc, setDesc] = useState(null);
   const [rating, setRating] = useState(0);
   const [currentUser, setCurrentUser] = useState(null);
+  const [showRegister, setShowRegister] =useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   const [viewport, setViewport] = useState({
     latitude: 47.040182,
@@ -172,13 +176,14 @@ function App() {
 (<button className='button logout'>Log out</button> ) 
 : 
 ( <div className='buttons'>
-<button className='button login'>Log in</button>
-<button className='button register'>Register</button>
+<button className='button login' onClick={() => setShowLogin(true)}>Log in</button>
+<button className='button register'  onClick={() => setShowRegister(true)}>Register</button>
 </div>) 
 }
        
        
-      
+{ showRegister &&    <Register setShowRegister={setShowRegister}/> }
+{ showLogin &&  <Login setShowLogin={setShowLogin}/>   }
      
     </ReactMapGL>
 
