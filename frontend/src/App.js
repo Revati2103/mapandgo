@@ -9,13 +9,14 @@ import Register from './components/Register';
 import Login from './components/Login';
 
 function App() {
+  const myStorage = window.localStorage;
+  const [currentUsername, setCurrentUsername] = useState(myStorage.getItem("user"));
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [rating, setRating] = useState(0);
-  const [currentUser, setCurrentUser] = useState(null);
   const [showRegister, setShowRegister] =useState(false);
   const [showLogin, setShowLogin] = useState(false);
 
@@ -41,6 +42,11 @@ function App() {
     setViewport({ ...viewport, latitude: lat, longitude: long });
   };
 
+  const handleLogout = () => {
+    myStorage.removeItem("user")
+    setCurrentUsername(null);
+  }
+
   const handleAddClick = (e) => {
     const [long,lat] = e.lngLat;
     setNewPlace({
@@ -51,7 +57,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPin = {
-      username: currentUser,
+      username: currentUsername,
       title,
       description: desc,
       rating,
@@ -90,7 +96,7 @@ function App() {
               <Room
                 style={{
                   fontSize: 7 * viewport.zoom,
-                  color: p.username === currentUser ? "tomato" : "slateblue",
+                  color: p.username === currentUsername ? "tomato" : "slateblue",
                   cursor: "pointer",
                 }}
                 onClick={() => handleMarkerClick(p._id, p.lat, p.long)}
@@ -172,8 +178,8 @@ function App() {
 
 )}
 
-{currentUser ? 
-(<button className='button logout'>Log out</button> ) 
+{currentUsername ? 
+(<button className='button logout' onClick={handleLogout}>Log out</button> ) 
 : 
 ( <div className='buttons'>
 <button className='button login' onClick={() => setShowLogin(true)}>Log in</button>
@@ -183,7 +189,7 @@ function App() {
        
        
 { showRegister &&    <Register setShowRegister={setShowRegister}/> }
-{ showLogin &&  <Login setShowLogin={setShowLogin}/>   }
+{ showLogin &&  <Login setShowLogin={setShowLogin} myStorage={myStorage} setCurrentUsername={setCurrentUsername}/>   }
      
     </ReactMapGL>
 
