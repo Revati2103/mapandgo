@@ -13,7 +13,7 @@ function App() {
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [rating, setRating] = useState(0);
-  const currentUser = 'Jane'
+  const [currentUser, setCurrentUser] = useState(null);
 
   const [viewport, setViewport] = useState({
     latitude: 47.040182,
@@ -167,9 +167,18 @@ function App() {
         </>
 
 )}
-       <button className='button logout'>Log out</button> 
-       <button className='button login'>Log in</button> 
-       <button className='button register'>Register</button> 
+
+{currentUser ? 
+(<button className='button logout'>Log out</button> ) 
+: 
+( <div className='buttons'>
+<button className='button login'>Log in</button>
+<button className='button register'>Register</button>
+</div>) 
+}
+       
+       
+      
      
     </ReactMapGL>
 
