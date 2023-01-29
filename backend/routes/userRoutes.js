@@ -8,6 +8,12 @@ router.post("/register", async(req,res) => {
     const { username, email, password } = req.body
     try {
 
+        const userExists = await User.findOne({ username: req.body.username });
+
+        if(userExists){
+           return res.status(400).json({ err: "Please choose a different username" });
+        }
+
     // Hash Password
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
