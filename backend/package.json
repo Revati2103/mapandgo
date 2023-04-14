@@ -7,6 +7,9 @@
     "server": "nodemon index.js",
     "start": "node index.js"
   },
+  "eb": {
+    "node_command": "npm start"
+  },
   "author": "Revati Bordawekar",
   "license": "ISC",
   "dependencies": {
