@@ -4,8 +4,8 @@
   "description": "An app to make travel itineraries",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js",
-    "start": "node index.js"
+    "server": "nodemon server.js",
+    "start": "node server.js"
   },
   "eb": {
     "node_command": "npm start"
