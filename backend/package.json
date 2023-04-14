@@ -4,7 +4,8 @@
   "description": "An app to make travel itineraries",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "server": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Revati Bordawekar",
   "license": "ISC",
