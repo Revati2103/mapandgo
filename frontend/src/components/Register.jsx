@@ -1,7 +1,7 @@
 import './register.css'
 
 import React, { useState , useRef} from 'react'
-import { Cancel, Room } from '@mui/icons-material'
+import { Cancel, Room } from '@material-ui/icons'
 import axios from 'axios'
 
 function Register({setShowRegister}) {
