@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl'
-//import { Room, Star} from '@mui/icons-material';
 import { Room, Star} from '@material-ui/icons';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './app.css'
