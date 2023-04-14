@@ -18,7 +18,7 @@ artifacts:
   files:
     - '**/*'
   discard-paths: no  
-  base-directory: ./backend
+  base-directory: ../backend
   
 
 
